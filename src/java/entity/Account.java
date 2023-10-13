@@ -12,27 +12,29 @@ public class Account {
     private int id;
     private String phone;
     private String password;
-    private String role;
     private String email;
     private String gender;  
     private String image;
     private String address;
+    private String role;
     private String name;
     private String code;
     public Account(){}
 
-    public Account(int id, String phone, String password, String role, String email, String gender, String image, String address, String name, String code) {
+    public Account(int id, String phone, String password, String email, String gender, String image, String address, String role, String name, String code) {
         this.id = id;
         this.phone = phone;
         this.password = password;
-        this.role = role;
         this.email = email;
         this.gender = gender;
         this.image = image;
         this.address = address;
+        this.role = role;
         this.name = name;
         this.code = code;
     }
+    
+    
 
     public int getId() {
         return id;
@@ -56,14 +58,6 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getEmail() {
@@ -98,6 +92,14 @@ public class Account {
         this.address = address;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public String getName() {
         return name;
     }
@@ -116,8 +118,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", phone=" + phone + ", password=" + password + ", role=" + role + ", email=" + email + ", gender=" + gender + ", image=" + image + ", address=" + address + ", name=" + name + ", code=" + code + '}';
+        return "Account{" + "id=" + id + ", phone=" + phone + ", password=" + password + ", email=" + email + ", gender=" + gender + ", image=" + image + ", address=" + address + ", role=" + role + ", name=" + name + ", code=" + code + '}';
     }
-    
-    
+
 }

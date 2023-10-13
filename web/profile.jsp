@@ -78,26 +78,27 @@ h4{
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Chỉnh sửa hồ sơ</h4>
                 </div>
+                 <form action="EditProfile">
                 <div class="row mt-2">
-                     <div class="col-md-12"><label class="labels" class="phone">Số điện thoại</label><h5>${sessionScope.acc.phone}</h5></div>
+                    <div class="col-md-12"><label class="labels">Số điện thoại</label><input name="phone" type="text" class="form-control" placeholder="Số điện thoại" value=""></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Họ và Tên</label><input name="name" type="text" class="form-control" placeholder="Họ và Tên" value="${name}"></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input name="email" type="text" class="form-control" placeholder="Email" value="email"></div>
-                    <div class="col-md-12"><label class="labels">Địa chỉ </label><input name="address" type="text" class="form-control" placeholder="Địa chỉ" value="address"></div>
+                    <div class="col-md-12"><label class="labels">Họ và Tên</label><input name="name" type="text" class="form-control" placeholder="Họ và Tên" value="${sessionScope.acc.name}"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><p name="email">${sessionScope.acc.email}</p></div>
+                    <div class="col-md-12"><label class="labels">Địa chỉ </label><input name="address" type="text" class="form-control" placeholder="Địa chỉ" value=""></div>
     
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Giới tính</label><input name="gender" type="text" class="form-control" placeholder="Giới tính" value="gender"></div>
+                    <div class="col-md-12"><label class="labels">Giới tính</label><input name="gender" type="text" class="form-control" placeholder="Giới tính" value=""></div>
                 </div>
-                <div class="mt-5 text-center"><a href="index.jsp"><button class="btn btn-primary profile-button" type="button">Edit Profile</button></a></div>
+                <div class="mt-5 text-center"><a href="index.jsp"><button class="btn btn-primary profile-button" type="button" value="profile">Edit Profile</button></a></div>
             </div>
         </div>
                
         <div class="col-md-4">
                        <div class="p-3 py-5">
-                           <div class="d-flex justify-content-between align-items-center experience"><img src="image/like.svg" style="width: 100%;height:100%"></div><br>
-            </div>
+                           <a href="newpassword.jsp" >Đổi mật khẩu mới tại đây!</a>
+                       </div>
         </div>
 
         </div>

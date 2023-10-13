@@ -32,7 +32,7 @@ public class SendEmail {
         
         String toEmail = account.getEmail();
         final String fromEmail = "hiep3452@gmail.com";
-        final String password = "dpnmwivmdmydmjwb";
+        final String password = "bzalziskfnekfael";
         
         try {
             Properties pr = new Properties();

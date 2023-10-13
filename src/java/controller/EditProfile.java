@@ -8,6 +8,7 @@ import dao.DAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Admin
  */
-@WebServlet(name = "EditProfile", urlPatterns = {"/EditProfile"})
+@WebServlet(name = "EditProfile", urlPatterns = {"/profile"})
 public class EditProfile extends HttpServlet {
 
     /**
@@ -34,24 +35,17 @@ public class EditProfile extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String phone = request.getParameter("${sessionScope.acc.phone}");
-        String password = request.getParameter("password");
+        String phone = request.getParameter("phone");   
         String email = request.getParameter("email");
         String gender = request.getParameter("gender");
         String address = request.getParameter("address");
         String image = request.getParameter("image");
         String name = request.getParameter("name");
-       
-            DAO dao = new DAO();
-            Account a =dao.checkExistAccount(phone);
-            if (a == null){
             
-    }
-            else{
+            DAO dao = new DAO();
+            dao.update(phone, name, address, gender, image, email);
             HttpSession session = request.getSession();
-            session.setAttribute("acc", a);
-            dao.update(phone, email, gender, address, image);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("index.jsp"); 
         }
     }
-}
+

@@ -315,6 +315,7 @@ footer{
     min-height: 400px;
 }
 
+
 </style>
 <body>
     <div class="header">
@@ -335,15 +336,20 @@ footer{
             <div class="col-sm-12">
                 <a href="index.html"><img src="image/logo.png" class="logo"></a>
                 <div class="home"><a href="">Trang chủ  </a></div>
-                <div class="search-ticket"><a href="">Tra cứu vé</a></div>
+                <div class="search-ticket"><a href="ticket">Tra cứu vé</a></div>
                 <div class="new"><a href="">Tin tức</a></div>
-                <div class="contact"><a href="">Liên hệ</a></div>
-               <div class="about-us"><a href="">Về chúng tôi</a></div>
+               <c:if test="${sessionScope.acc.role == 'customer'}">
+                <div class="contact"><a href="">Vé của tôi</a></div>
+                </c:if>
+                <c:if test="${sessionScope.acc.role == 'admin'}">
+               <div class="about-us"><a href="dashboard.jsp">Quản lí</a></div>
+                </c:if>
             </div>
         </div>
         </div>
         </div>
     </div>
+    
     
         <div class="container-all ">
             <div class="height">

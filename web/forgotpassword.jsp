@@ -231,7 +231,7 @@ a:hover{
         <div class="form-inner">
           <form action="ForgotPasswordControl" class="login" method="POST">
             <div class="field">
-              <input type="text" name="phone" placeholder="Số điện thoại đăng kí" required>
+              <input type="text" name="email" placeholder="Địa chỉ Email đăng kí" required>
                             <p class="text-danger" style="color:red">${mess}</p>
             </div>
                 <div class="field btn">

@@ -6,6 +6,9 @@ package dao;
 
 import context.DBContext;
 import entity.Account;
+import entity.Route;
+import entity.Trip;
+import entity.Vehicle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -83,43 +86,132 @@ public class DAO {
         } catch (Exception e) {
         }
     }
-    public void update(String email, String gender, String address, String image, String name){
-        String query = "UPDATE Role_Tbl\n" +
-"SET [User]=1 ,Admin = 0, Staff = 0, Email = ? , Gender = ? , Address = ? , Image = ? , Fullname= ? \n" +
-"WHERE Phone = '${sessionScope.acc.phone}'";
-        try { 
+  public void update(String phone, String name, String address, String gender, String image , String email) {
+    String query = "UPDATE Users SET phone = ?, name = ?, address = ?, gender = ?, image = ? WHERE email = ?";
+  
+    try {
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(query);
+        ps.setString(1, phone);
+        ps.setString(2, name);
+        ps.setString(3, address);
+        ps.setString(4, gender);
+        ps.setString(5, image);
+        ps.setString(6, email);
+        ps.executeUpdate();
+    } catch (Exception e) {
+         e.printStackTrace();
+    }
+}
+    public List<Route> getAllRoute(){
+        List<Route> list = new ArrayList<>();
+        
+        String query = "select * from Route";
+        try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(6, email);
-            ps.setString(7, gender);
-            ps.setString(8, address);
-            ps.setString(9, image);
-            ps.setString(10, name);
-            ps.executeUpdate();
+            rs = ps.executeQuery();
+            while (rs.next()){
+               list.add(new Route(rs.getInt(1),
+                       rs.getString(2),
+                       rs.getString(3),
+                       rs.getFloat(4),
+                       rs.getFloat(5),
+                       rs.getFloat(6),
+                       rs.getString(7),
+                       rs.getString(8)));
+            }
         } catch (Exception e) {
         }
+        return list;
+    }     
+    public static void Route() {
+        DAO dao = new DAO();
+        List<Route> list = dao.getAllRoute();
+        for (Route o : list){
+            System.out.println(o);
+        }
     }
-  
-//    public static List<Account> list = new ArrayList<>();
-//    public int updateAccount(Account account){
-//        for (int i=0; i<list.size(); i++){
-//            if(list.get(i).getPhone().equals(account.getPhone())){
-//                list.set(i, account);
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
-//    public int save(Account account){
-//        list.add(account);
-//        return 1;
-//    } 
-//    public int delete(String phone){
-//        Account account = checkExistAccount(phone);
-//        if (account != null) {
-//            list.remove(account);
-//            return 1;
-//        }
-//        return 0;
-//    }
+    
+    public List<Vehicle> getAllVehicle(){
+        List<Vehicle> list = new ArrayList<>();
+        
+        String query = "select * from Vehicle";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+               list.add(new Vehicle(rs.getInt(1),
+                       rs.getString(2),
+                       rs.getString(3),
+                       rs.getString(4),
+                       rs.getInt(5),
+                       rs.getString(6)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }     
+    public static void Vehicle(){
+        DAO dao = new DAO();
+        List<Vehicle> list = dao.getAllVehicle();
+        for (Vehicle o : list){
+            System.out.println(o);
+        }
+    }
+    
+    public List<Trip> getAllTrip(){
+        List<Trip> list = new ArrayList<>();
+        
+        String query = "select * from Trip";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+               list.add(new Trip(rs.getInt(1),
+                       rs.getInt(2),
+                       rs.getString(3),
+                       rs.getString(4),
+                       rs.getInt(5),
+                       rs.getString(6),
+                       rs.getString(7),
+                       rs.getString(8),
+                       rs.getInt(9)));
+                      
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }     
+    public static void Trip(){
+        DAO dao = new DAO();
+        List<Trip> list = dao.getAllTrip();
+        for (Trip o : list){
+            System.out.println(o);
+        }
+    }
+    public Trip checkExistTicket(String tripId){
+        String query = "SELECT * FROM Trip WHERE trip_id = ? ";
+         try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, tripId);
+            rs = ps.executeQuery();
+            while(rs.next()){
+               return new Trip(rs.getInt(1),
+                       rs.getInt(2),
+                       rs.getString(3),
+                       rs.getString(4),
+                       rs.getInt(5),
+                       rs.getString(6),
+                       rs.getString(7),
+                       rs.getString(8),
+                       rs.getInt(9));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 }

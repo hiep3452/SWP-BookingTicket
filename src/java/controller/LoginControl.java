@@ -37,7 +37,6 @@ public class LoginControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();        
         try {
-            
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             Account a = dao.checkLogin(email, password);
@@ -48,9 +47,9 @@ public class LoginControl extends HttpServlet {
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("acc", a);
+            session.setMaxInactiveInterval(300);
             response.sendRedirect("index.jsp");
         }
-            
         } catch (Exception e) {
         }
     }

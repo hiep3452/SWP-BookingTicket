@@ -37,10 +37,10 @@ public class ForgotPasswordControl extends HttpServlet {
         DAO dao = new DAO();
 
     try {
-            String phone = request.getParameter("phone");
-            Account a = dao.checkExistAccount(phone);
+            String email = request.getParameter("email");
+            Account a = dao.checkExistAccount(email);
         if(a==null){
-            request.setAttribute("mess","Số điện thoại không tồn tại" );
+            request.setAttribute("mess","Địa chỉ email không tồn tại" );
             request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
         }else{
             HttpSession session = request.getSession();
