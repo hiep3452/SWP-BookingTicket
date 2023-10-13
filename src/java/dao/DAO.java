@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SplittableRandom;
+import sun.font.TrueTypeFont;
 
 /**
  *
@@ -103,6 +104,22 @@ public class DAO {
          e.printStackTrace();
     }
 }
+ public void changePassword( String password, String email) {
+    String query = "UPDATE Users SET Password = ? WHERE email = ?";
+      
+    try {
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(query);
+        ps.setString(1, password);
+        ps.setString(2, email);
+        ps.executeUpdate();
+      
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+  
+  
     public List<Route> getAllRoute(){
         List<Route> list = new ArrayList<>();
         
@@ -214,4 +231,5 @@ public class DAO {
         }
         return null;
     }
+    
 }

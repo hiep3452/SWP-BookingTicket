@@ -5,6 +5,7 @@
 package controller;
 
 import dao.DAO;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,16 +33,27 @@ public class NewPassword extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
         String newpassword = request.getParameter("newpassword");
         String renewpassword = request.getParameter("renewpassword");
         
         DAO dao = new DAO();
-        //check password
-        if (newpassword != renewpassword){
-            request.setAttribute("mess", "Mật khẩu mới không trùng khớp");
-            
-        }
+        Account a = dao.checkLogin(email, password);
+       if (a == null){
+           request.setAttribute("mess","Địa chỉ email hoặc mật khẩu không đúng" );
+            request.getRequestDispatcher("newpassword.jsp").forward(request, response);
+       }else{
+            if (!newpassword.equals(renewpassword)){
+            request.setAttribute("mess2","Mật khẩu mới không trùng nhau" );
+            response.sendRedirect("newpassword.jsp");
+            }
+            else{
+                password = newpassword;
+                dao.changePassword(newpassword, email);
+                response.sendRedirect("index.jsp");
+            }
+       }
         
     }
 

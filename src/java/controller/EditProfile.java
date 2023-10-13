@@ -20,8 +20,18 @@ import javax.servlet.http.HttpSession;
  *
  * @author Admin
  */
-@WebServlet(name = "EditProfile", urlPatterns = {"/profile"})
+@WebServlet(name = "EditProfile", urlPatterns = {"/EditProfile"})
 public class EditProfile extends HttpServlet {
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    processRequest(request, response);
+}
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    processRequest(request, response);
+}
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,4 +58,5 @@ public class EditProfile extends HttpServlet {
             response.sendRedirect("index.jsp"); 
         }
     }
+    
 

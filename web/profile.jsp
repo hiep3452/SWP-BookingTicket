@@ -64,7 +64,7 @@ h4{
 }
     </style>
     <body>
-        <form action="EditProfile">
+        <form action="EditProfile" method="post">
       <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
@@ -74,11 +74,12 @@ h4{
             </div>
         </div>
         <div class="col-md-5 border-right">
+            <form action="EditProfile" method="post">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Chỉnh sửa hồ sơ</h4>
                 </div>
-                 <form action="EditProfile">
+                
                 <div class="row mt-2">
                     <div class="col-md-12"><label class="labels">Số điện thoại</label><input name="phone" type="text" class="form-control" placeholder="Số điện thoại" value=""></div>
                 </div>
@@ -86,13 +87,14 @@ h4{
                     <div class="col-md-12"><label class="labels">Họ và Tên</label><input name="name" type="text" class="form-control" placeholder="Họ và Tên" value="${sessionScope.acc.name}"></div>
                     <div class="col-md-12"><label class="labels">Email</label><p name="email">${sessionScope.acc.email}</p></div>
                     <div class="col-md-12"><label class="labels">Địa chỉ </label><input name="address" type="text" class="form-control" placeholder="Địa chỉ" value=""></div>
-    
+                    
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Giới tính</label><input name="gender" type="text" class="form-control" placeholder="Giới tính" value=""></div>
                 </div>
                 <div class="mt-5 text-center"><a href="index.jsp"><button class="btn btn-primary profile-button" type="button" value="profile">Edit Profile</button></a></div>
             </div>
+            </form>
         </div>
                
         <div class="col-md-4">
@@ -106,7 +108,7 @@ h4{
 </div>
 </div>
 </div>
-</form>
+
     </body>
 </html>
         

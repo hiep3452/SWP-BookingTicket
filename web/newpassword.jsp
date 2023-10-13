@@ -229,6 +229,9 @@ a:hover{
         </div>
         <div class="form-inner">
           <form action="NewPassword">
+              <div class="field">
+              <input type="email" name="email" placeholder="Nhập địa chỉ email" required>    
+            </div>
             <div class="field">
               <input type="password" name="password" placeholder="Nhập mật khẩu hiện tại" required>    
             </div>
@@ -238,6 +241,8 @@ a:hover{
               <div class="field">
               <input type="password" name="renewpassword" placeholder="Xác nhận mật khẩu mới" required>    
             </div>
+                            <p class="text-danger" style="color:red">${mess}</p>
+                            <p class="text-danger" style="color:red">${mess2}</p>
                 <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="Xác nhận">
