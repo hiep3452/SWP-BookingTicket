@@ -99,7 +99,7 @@ h4{
                
         <div class="col-md-4">
                        <div class="p-3 py-5">
-                           <a href="newpassword.jsp" >Đổi mật khẩu mới tại đây!</a>
+                           <h3> <a href="newpassword.jsp">Đổi mật khẩu mới tại đây!</a></h3>
                        </div>
         </div>
 

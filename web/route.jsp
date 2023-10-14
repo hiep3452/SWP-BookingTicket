@@ -97,9 +97,9 @@
                     <td><%= route.getStatus() %></td>
                     <td>
                         <!-- Edit Button -->
-                        <button class="btn-edit" onclick="editRoute(<%= route.getRouteId()%>)"  >✏️ Edit</button>
+                        <a class="btn-edit" href="EditRoute?routeId=<%= route.getRouteId()%>">✏️ Edit</a>
                         <!-- Delete Button -->
-                        <button class="btn-delete" onclick="deleteRoute(<%= route.getRouteId()%>)">❌ Delete</button>
+                        <a class="btn-delete" href="DeleteRoute?routeId=<%= route.getRouteId()%>">❌ Delete</a>                    
                     </td>
                 </tr>
                 <% 
@@ -107,27 +107,10 @@
                 %>
             </tbody>
         </table>
-        
         <!-- Add Route Button -->
-        <button class="btn-add" onclick="addRoute()">➕ Add Route</button>
+        <a class="btn-add" href="AddRoute">➕ Add Route</a>
     </div>
-
-    <!-- JavaScript code for CRUD operations -->
-    <script>
-        // Function to edit a route
-        function editRoute(routeId) {
-            // TODO: Implement the edit functionality
-        }
-        
-        // Function to delete a route
-        function deleteRoute(routeId) {
-            // TODO: Implement the delete functionality
-        }
-        
-        // Function to add a new route
-        function addRoute() {
-            // TODO: Implement the add functionality
-        }
-    </script>
+          
+    
 </body>
 </html>

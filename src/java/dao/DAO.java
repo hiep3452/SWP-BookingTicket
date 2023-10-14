@@ -150,6 +150,74 @@ public class DAO {
         }
     }
     
+    public List<Route> deleteByRouteID(int id ){
+        List<Route> list = new ArrayList<>();
+        
+        String query = "DELETE FROM Route WHERE route_id=?";
+
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+               list.add(new Route(rs.getInt(1),
+                       rs.getString(2),
+                       rs.getString(3),
+                       rs.getFloat(4),
+                       rs.getFloat(5),
+                       rs.getFloat(6),
+                       rs.getString(7),
+                       rs.getString(8)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }     
+     public List<Route> editByRouteID(int routeId,String origin, String destination, float distance , float duration, float fare, String vehicle, String status ){
+        List<Route> list = new ArrayList<>();
+        
+        String query = "UPDATE Route SET origin = ? ,  destination = ? , distance = ? , duration = ? , fare = ?,  vehicle_type = ? , route_status= ? WHERE route_id = ?" ;
+                        
+
+       try {
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(query);
+        ps.setString(1, origin);
+        ps.setString(2, destination);
+        ps.setFloat(3, distance);
+        ps.setFloat(4, duration);
+        ps.setFloat(5, fare);
+        ps.setString(6, vehicle);
+        ps.setString(7, status);
+        ps.setInt(8, routeId);
+        
+        int rowsAffected = ps.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            // Nếu cập nhật thành công, truy vấn lại dữ liệu tuyến đường đã được chỉnh sửa
+            String selectQuery = "SELECT * FROM Route WHERE route_id = ?";
+            ps = conn.prepareStatement(selectQuery);
+            ps.setInt(1, routeId);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                list.add(new Route(rs.getInt("route"),
+                                   rs.getString("origin"),
+                                   rs.getString("destination"),
+                                   rs.getFloat("distance"),
+                                   rs.getFloat("duration"),
+                                   rs.getFloat("fare"),
+                                   rs.getString("vehicle_type"),
+                                   rs.getString("route_status")));
+            }
+        }
+    } catch (Exception e) {
+        // Xử lý ngoại lệ (exception) ở đây
+    }
+    
+    return list;
+}
     public List<Vehicle> getAllVehicle(){
         List<Vehicle> list = new ArrayList<>();
         
@@ -231,5 +299,29 @@ public class DAO {
         }
         return null;
     }
+    public Route checkExistRoute(String origin, String destination){
+        String query = "SELECT * FROM Route WHERE origin = ? AND destination = ?";
+        
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, origin);
+            ps.setString(2, destination);
+            rs = ps.executeQuery();
+            while(rs.next()){
+              return new Route(rs.getInt(1),
+                         rs.getString(2),
+                         rs.getString(3),
+                         rs.getFloat(4),
+                         rs.getFloat(5),
+                         rs.getFloat(6),
+                         rs.getString(7),
+                         rs.getString(8));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     
 }

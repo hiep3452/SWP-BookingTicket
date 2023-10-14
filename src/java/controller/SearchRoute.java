@@ -1,4 +1,4 @@
-    /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
@@ -8,7 +8,6 @@ import dao.DAO;
 import entity.Route;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet(name = "RouteControl", urlPatterns = {"/route"})
-public class RouteControl extends HttpServlet {
+@WebServlet(name = "SearchRoute", urlPatterns = {"/SearchRoute"})
+public class SearchRoute extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,14 +30,21 @@ public class RouteControl extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-    DAO dao = new DAO();
-    List<Route> list = dao.getAllRoute();
-    request.setAttribute("listR", list);
-    request.getRequestDispatcher("route.jsp").forward(request, response); 
-}
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        String origin = request.getParameter("origin");
+        String destination = request.getParameter("destination");
+        String date = request.getParameter("date");
+        
+        DAO dao = new DAO();
+        Route a = dao.checkExistRoute(origin, destination);
+        if (a != null){
+            
+
+        }
+        }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
