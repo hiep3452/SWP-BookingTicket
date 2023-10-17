@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -24,7 +27,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-        <link rel="stylesheet" href="/BookingTicket/css/style.css">
+        <link rel="stylesheet" href="index.css">
         <title>DN BUS</title>
     </head>    
     <style>
@@ -34,291 +37,6 @@
     font-weight: 500;
     font-family :'Times New Roman', Times, serif; 
 }
-.header{
-    background-color: rgb(88,140,126);
-    margin-bottom: 70px;
-}
-.sign-up,.log-out{
-    float: right;
-    margin-top: 10px;
-    padding: 5px 0;  
-    border-radius: 15px;
-    background-color: white;
-}
-.sign-up i{
-    color: black;
-    letter-spacing:0.1em;
-    font-weight: 500;
-}
-.sign-up i:hover{
-    font-weight: bolder;
-    text-decoration: underline;
-}
-
-.sign-up a{
-    text-decoration: none;
-}
-.log-out i{
-    color:black;
-    letter-spacing:0.1em;
-    font-weight: 500;
-}
-.log-out i:hover{
-    font-weight: bolder;
-    text-decoration: underline;
-}
-.log-out a{
-    text-align: none;
-}
-.icon-logout a{
-    float: right;
-    margin-top: 10px;
-    padding: 5px 0;  
-    border-radius: 15px;
-}
-
-.logo{
-    width:150px;
-    border-radius:70%;
--moz-border-radius:70%;
--webkit-border-radius:70%;
-}
-.row {
-    
-}
-.row div{
-    display: flex;
-    align-items: center;
-    padding-right: 10px ;
-    justify-content: space-between;
-}
-.row a{
-    text-decoration: none;
-    color: #fff;
-    align-items: center;
-}
-.col-sm-12 a{
-    font-size: 20px;
-}
-.col-sm-12 a:hover{
-    text-decoration: underline;
-    font-weight: bolder;
-}
-.log-out{
-    float: right;
-}
-.grid-container1 {
-    width: 1000px;
-    margin: auto;
-}
-.select{
-    margin-top: 15px;
-    margin-left: 25px;
-}
-.instructions{
-    margin-right: 25px;
-    margin-top: 15px;
-    color: darkgreen;
-}
-.search{
-    margin-bottom: 50px;
-}
-.thong-tin{
-    display: flex;
-    justify-content: space-between;
-}
-.gioi-thieu h1{
-    margin-top: 20px;
-}
-
-.search-content-items {
-    justify-content: space-between;
-    background-color: rgb(88,140,126);
-    padding: 12px;
-    border-radius: 5px;
-}
-.search-content-item{
-    height: 50px;
-    background-color: rgb(88,140,126);
-    width: 15%;
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    position: relative;
-}
-.search-content-item input{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    padding-left: 36px;
-    border-radius: 5px;
-}
-
-.search-content-item i{
-    position: absolute;
-    margin-right: 12px;
-    left: 12px;
-    z-index: 1;
-}
-.search-content-item button{
-    width: 130px;
-}
-.search-content-item  button{
-    height: 100%;
-    width: 100%;
-    color: #fff;
-    background-color: rgb(88,140,126);
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.search-content-item button:hover{
-        text-decoration: underline;
-        font-weight: bolder;
-}
-.gioi-thieu{
-    text-align: center;
-}
-.achievements .container{
-    justify-content: space-between;
-    display: flex;
-
-}
-.achievements{
-    margin-top: 5rem;
-}
-.achievements figure{
-    display: flex;
-}
-.achievements figcaption{
-    margin-left: 1rem;
-}
-.achievements a{
-    color: #000;
-    text-decoration:none;
-}
-.achievements h3{
-    font-size: 24px;
-    font-family: "Inter" !important;
-    font-weight: 700;
-}
-.achievements p{
-    font-size: 15px;
-    font-family: "Inter" !important;
-    margin-bottom: 50px;
-}
-.achievements li{
-    margin-bottom: 1rem;
-}
-.gioi-thieu{
-    margin-bottom: 40px;
-}
-.gioi-thieu2{
-    text-align: center;
-    
-}
-.gioi-thieu2 h1{
-    margin-top: 100px;
-    
-}
-.gioi-thieu2 p{
-    margin-bottom: 50px;
-}
-.noibat{
-    margin-bottom: 60px;
-}
-.noibat-1 { grid-area: noibat-1; }
-.noibat-2 { grid-area: noibat-2; }
-.noibat-3 { grid-area: noibat-3; }
-.noibat-4 { grid-area: noibat-4; }
-.grid-container {
-    display: grid;
-    grid-template-areas:
-      'noibat-1 noibat-1 noibat-2 noibat-2 noibat-3 noibat-3 noibat-4 noibat-4';
-    gap: 10px;
-}
-figcaption p{
-    font-weight: bold;
-}
-.noibat img{
-    width: 100%;
-    height: 90%;
-    object-fit: cover;
-}
-.grid-container{
-    margin-top: 80px;
-}
-.noibat figure{
-    height: 100%;
-    display: block;
-}
-.contact img{
-    width: 100%;
-    height: 90%;
-    object-fit: cover;
-}
-
-.contact figure{
-    height: 100%;
-    display: block;
-}
-.contact img{
-    border-radius:50%;
--moz-border-radius:50%;
--webkit-border-radius:50%;
-}
-figcaption{
-    color: #000;
-}
-
-  /* footer */
-  footer > p{
-    text-align: center;
-    background: #588C7E;
-    height: 35px;
-    line-height: 35px;
-    font-size: 14px;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  .grid-container1 {
-    display: flex;
-    justify-content: space-between;
-  }
-.register button{
-    border: none;
-    color: #fff;
-    padding: 6px;
-}
-.gird-item1 a{
-    color: black;
-}
-.register a{
-    text-decoration: none;
-    border-radius: 7rem;
-    color: #fff;
-    background-color: #EF5222;
-    padding: 6px;
-}
-ul{
-    list-style: none;
-}
-a{
-    text-decoration: none;  
-}
-footer{
-    margin-bottom: none;
-    margin-top: 50px;
-}
-.height{
-    min-height: 400px;
-}
-
-
 </style>
 <body>
     <div class="header">
@@ -614,6 +332,54 @@ footer{
         </div>
       </div>
     </footer>
+              <div class="chatbox-wrapper">
+		<div class="chatbox-toggle">
+			<i class='bx bx-message-dots'></i>
+		</div>
+		<div class="chatbox-message-wrapper">
+			<div class="chatbox-message-header">
+				<div class="chatbox-message-profile">
+					<img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="chatbox-message-image">
+					<div>
+						<h4 class="chatbox-message-name">Chăm sóc khách hàng</h4>
+						<p class="chatbox-message-status">DN BUS</p>
+					</div>
+				</div>
+				<div class="chatbox-message-dropdown">
+					<i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+					<ul class="chatbox-message-dropdown-menu">
+						<li>
+							<a href="#">Search</a>
+						</li>
+						<li>
+							<a href="#">Report</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="chatbox-message-content">
+				<h4 class="chatbox-message-no-message">You don't have message yet!</h4>
+				<!-- <div class="chatbox-message-item sent">
+					<span class="chatbox-message-item-text">
+						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+					</span>
+					<span class="chatbox-message-item-time">08:30</span>
+				</div>
+				<div class="chatbox-message-item received">
+					<span class="chatbox-message-item-text">
+						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+					</span>
+					<span class="chatbox-message-item-time">08:30</span>
+				</div> -->
+			</div>
+			<div class="chatbox-message-bottom">
+				<form action="#" class="chatbox-message-form">
+					<textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
+					<button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
               <script src="index.js"></script>
 </body>
 </html>

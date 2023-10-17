@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,9 +40,13 @@ public class SearchRoute extends HttpServlet {
         
         DAO dao = new DAO();
         Route a = dao.checkExistRoute(origin, destination);
-        if (a != null){
-            
-
+        if (a == null){
+            request.setAttribute("mess", "Không có kết quả tìm thấy");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("search", a);
+            response.sendRedirect("index.jsp");
         }
         }
 
